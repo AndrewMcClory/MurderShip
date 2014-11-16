@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<SurfaceView android:id="@+id/MurderShipView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" />
+
+<TextView android:id="@+id/TitleText" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="@string/Title" android:textStyle="bold" android:typeface="normal" android:shadowDy="2.1" android:shadowDx="2.1" android:shadowRadius="2.1" android:shadowColor="#000000" android:textColor="#D00000" android:layout_width="fill_parent" android:gravity="center" android:background="#000040" android:textSize="32sp"></TextView>
+<TextView android:id="@+id/CreditsText" android:layout_height="wrap_content" android:text="@string/Credits" android:layout_gravity="center" android:layout_width="fill_parent" android:gravity="center_horizontal" android:textColor="#D00000" android:shadowDx="2.1" android:shadowDy="2.1" android:shadowRadius="2.1" android:typeface="normal" android:textStyle="bold" android:lines="4" android:shadowColor="#000000" android:background="#000040" android:textSize="16sp"></TextView>
+<Button android:id="@+id/NewGameButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|left" android:text="@string/NewGame"></Button>
+<Button android:id="@+id/ContinueGameButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|right" android:text="@string/ContinueGame"></Button>
+</FrameLayout>
