@@ -411,9 +411,6 @@ public class MurderShipDrawRunnable implements Runnable {
     	if (mTileBitmap.mLeft > mActiveDrawBuffer.mCameraLeft) {
     		while (mTileBitmap.mLeft >= mActiveDrawBuffer.mCameraLeft)
     			mTileBitmap.mLeft-=mBitmaps.mTileWidth;
-    		
-    		if (mTileBitmap.mLeft < 0)
-    			mTileBitmap.mLeft = 0;
     	}
     	else if (tileBitmapRight < surfaceRight)
     	{
@@ -427,14 +424,14 @@ public class MurderShipDrawRunnable implements Runnable {
     		if (tileBitmapRight > gameMapRight)
     			mTileBitmap.mLeft = (gameMapRight - mTileBitmap.mWidth) + 1;
     	}
+
+        if (mTileBitmap.mLeft < 0)
+            mTileBitmap.mLeft = 0;
     	
     	// Shift top border if it is below the surface's top position
     	if (mTileBitmap.mTop > mActiveDrawBuffer.mCameraTop) {
     		while (mTileBitmap.mTop >= mActiveDrawBuffer.mCameraTop)
     			mTileBitmap.mTop-=mBitmaps.mTileHeight;
-    		
-    		if (mTileBitmap.mTop < 0)
-    			mTileBitmap.mTop = 0;
     	}
     	else if (tileBitmapBottom < surfaceBottom)
     	{
@@ -446,8 +443,11 @@ public class MurderShipDrawRunnable implements Runnable {
     		}
     		
     		if (tileBitmapBottom > gameMapBottom)
-    			mTileBitmap.mTop = (gameMapBottom - mTileBitmap.mHeight) + 1;
+                mTileBitmap.mTop = (gameMapBottom - mTileBitmap.mHeight) + 1;
     	}
+
+        if (mTileBitmap.mTop < 0)
+            mTileBitmap.mTop = 0;
     	
     	// If the tile bitmap has moved in either direction, it will be necessary to scroll
     	if (mTileBitmap.mLeft != oldLeft || mTileBitmap.mTop != oldTop)

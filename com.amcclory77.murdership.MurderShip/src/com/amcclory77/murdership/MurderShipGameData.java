@@ -40,8 +40,8 @@ public class MurderShipGameData {
 		
 			private static final long serialVersionUID = 1L;
 			
-			public static final int DEFAULT_WIDTH_IN_ROOM_SECTIONS = 10;
-			public static final int DEFAULT_HEIGHT_IN_ROOM_SECTIONS = 10;
+			public static final int DEFAULT_WIDTH_IN_ROOM_SECTIONS = 25;
+			public static final int DEFAULT_HEIGHT_IN_ROOM_SECTIONS = 25;
 			
 			public static final int DEFAULT_ROOM_WIDTH_IN_TILES = 6;
 			public static final int DEFAULT_ROOM_HEIGHT_IN_TILES = 6;
@@ -1063,7 +1063,7 @@ public class MurderShipGameData {
 		// Construct path node matrix that will be used to compute shortest paths within rooms
 		mPathNodes = new PathNode[mMapWidthTiles][mMapHeightTiles];
 		for (int i = 0; i < mMapWidthTiles; ++i)
-			for (int j = 0; j < mMapWidthTiles; ++j)
+			for (int j = 0; j < mMapHeightTiles; ++j)
 				mPathNodes[i][j] = new PathNode();
 		
 		// Construct checkpoint arrays for all animate objects
@@ -1968,7 +1968,17 @@ public class MurderShipGameData {
 	}
 
 	private int getRoomID(int left, int bottom) {
-		return mRoomSections[getLeftRoomSection(left)][getBottomRoomSection(bottom)];
+
+        int leftRoomSection = getLeftRoomSection(left);
+        int bottomRoomSection = getBottomRoomSection(bottom);
+
+        if (leftRoomSection >= 0 && leftRoomSection < mMap.mWidthInRoomSections &&
+                bottomRoomSection >= 0 && bottomRoomSection < mMap.mHeightInRoomSections) {
+            return mRoomSections[getLeftRoomSection(left)][getBottomRoomSection(bottom)];
+        }
+        else {
+            return -1;
+        }
 	}
 
 	private int getLeftTile(int left) {

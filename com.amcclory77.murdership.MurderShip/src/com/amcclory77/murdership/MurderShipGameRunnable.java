@@ -207,11 +207,17 @@ public class MurderShipGameRunnable implements Runnable {
 			mCameraLeft = 0;
 		else if ((mCameraLeft + mCameraWidth) >= mGameData.mMapWidthTiles * mGameData.mBitmaps.mTileWidth)
 			mCameraLeft = (mGameData.mMapWidthTiles * mGameData.mBitmaps.mTileWidth) - mCameraWidth;
+
+        if (mCameraLeft < 0)
+            mCameraLeft = 0;
 		
 		if (mCameraTop < 0)
 			mCameraTop = 0;
 		else if ((mCameraTop + mCameraHeight) >= mGameData.mMapHeightTiles * mGameData.mBitmaps.mTileHeight)
 			mCameraTop = (mGameData.mMapHeightTiles * mGameData.mBitmaps.mTileHeight) - mCameraHeight;
+
+        if (mCameraTop < 0)
+            mCameraTop = 0;
     }
     
     public void run() {
