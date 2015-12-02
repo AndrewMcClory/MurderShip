@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Murder Ship</string>
+    <string name="ContinueGame">Continue Game</string>
+    <string name="NewGame">New Game</string>
+    <string name="Credits">Programmed by Andrew McClory \n Graphics by Nicole Stoller</string>
+    <string name="Title">Murder Ship</string>
+    <string name="hello">Hello World, MurderShip!</string>
+    <string name="STATE_FILENAME">murdership_state</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

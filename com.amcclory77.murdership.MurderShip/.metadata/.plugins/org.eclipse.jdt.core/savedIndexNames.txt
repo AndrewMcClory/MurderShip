@@ -1,1 +1,0 @@
-INDEX VERSION 1.126+C:\Users\amcclory\Documents\android_workspace\MurderShip\.metadata\.plugins\org.eclipse.jdt.core
