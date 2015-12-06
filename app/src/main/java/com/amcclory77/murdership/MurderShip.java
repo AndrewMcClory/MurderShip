@@ -58,8 +58,6 @@ public class MurderShip extends Activity implements SurfaceHolder.Callback, OnCl
 
         super.onCreate(savedInstanceState);
 
-    	mDialogID = NO_DIALOG;
-
         setContentView(R.layout.main);
         mSurfaceView = (SurfaceView)findViewById(R.id.MurderShipView);
         mSurfaceView.getHolder().addCallback(this);
@@ -77,6 +75,9 @@ public class MurderShip extends Activity implements SurfaceHolder.Callback, OnCl
 
         mDrawRunnable = new MurderShipDrawRunnable(mGameData, mSurfaceView.getHolder());
 		mGameRunnable = new MurderShipGameRunnable(this, mGameData, mDrawRunnable);
+
+		// Close any dialogs that may be open such as if the screen was reoriented
+		closeDialog();
     }
 
     private void saveGameState() {
@@ -322,13 +323,12 @@ public class MurderShip extends Activity implements SurfaceHolder.Callback, OnCl
 
 	public void closeDialog()
 	{
-		if (mDialogID != NO_DIALOG) {
-            DialogFragment prev = (DialogFragment)getFragmentManager().findFragmentByTag("dialog");
-            if (prev != null) {
-                prev.dismiss();
-				mDialogID = NO_DIALOG;
-            }
-        }
+		DialogFragment prev = (DialogFragment)getFragmentManager().findFragmentByTag("dialog");
+		if (prev != null) {
+			prev.dismiss();
+		}
+
+		mDialogID = NO_DIALOG;
 		mGameRunnable.mIsPaused = false;
 	}
 
